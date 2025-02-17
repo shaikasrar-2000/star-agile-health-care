@@ -1,37 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: health4-eta-deploy
+  name: health6-eta-deploy
   labels:
-    app: health4-eta-app
+    app: health6-eta-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: health4-eta-app
+      app: health6-eta-app
   template:
     metadata:
       labels:
-        app: health4-eta-app
+        app: health6-eta-app
     spec:
       containers:
-      - name: health4-eta-container
-        image: shaik0103/health4-eta-app
+      - name: health6-eta-container
+        image: shaik0103/health6-eta-app
         ports:
         - containerPort: 8082
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: health4-eta-np-service
+  name: health6-eta-np-service
   labels:
-    app: health4-eta-app
+    app: health6-eta-app
 spec:
   selector:
-    app: health4-eta-app
+    app: health6-eta-app
 
   type: NodePort
   ports:
-  - nodePort: 31020 
+  - nodePort: 31021 
     port: 8082
     targetPort: 8082
